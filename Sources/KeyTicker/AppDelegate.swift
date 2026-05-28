@@ -92,7 +92,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(appearanceItem)
 
         let speedMenu = NSMenu()
-        for (label, speed) in [("Slow", 30.0), ("Normal", 60.0), ("Fast", 120.0)] {
+        for (label, speed) in [("Slow", 25.0), ("Normal", 45.0), ("Fast", 90.0)] {
             let item = NSMenuItem(title: label, action: #selector(setSpeed(_:)), keyEquivalent: "")
             item.target = self
             item.representedObject = speed

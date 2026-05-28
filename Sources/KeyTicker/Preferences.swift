@@ -19,7 +19,7 @@ final class Preferences {
 
     /// Pixels per second.
     var speed: Double {
-        get { defaults.object(forKey: Keys.speed) as? Double ?? 60.0 }
+        get { defaults.object(forKey: Keys.speed) as? Double ?? 35.0 }
         set { defaults.set(newValue, forKey: Keys.speed) }
     }
 

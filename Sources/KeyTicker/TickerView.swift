@@ -18,7 +18,7 @@ final class TickerView: NSView {
     private var lastTick: CFTimeInterval = 0
     private var renderedAttributedString: NSAttributedString = NSAttributedString(string: "")
     private var renderedWidth: CGFloat = 0
-    private let gapBetweenLoops: CGFloat = 80
+    private let gapBetweenLoops: CGFloat = 0
 
     override var wantsUpdateLayer: Bool { false }
     override var isFlipped: Bool { false }
@@ -72,15 +72,12 @@ final class TickerView: NSView {
             prefix.append(NSAttributedString(string: "•  ", attributes: separator))
         }
 
-        for (i, s) in shortcuts.enumerated() {
+        let interItem = NSAttributedString(string: "    ·    ", attributes: separator)
+        for s in shortcuts {
             prefix.append(NSAttributedString(string: s.keys, attributes: keyAttrs))
             prefix.append(NSAttributedString(string: "  ", attributes: actionAttrs))
             prefix.append(NSAttributedString(string: s.action, attributes: actionAttrs))
-            if i < shortcuts.count - 1 {
-                prefix.append(NSAttributedString(string: "    ", attributes: separator))
-                prefix.append(NSAttributedString(string: "·", attributes: separator))
-                prefix.append(NSAttributedString(string: "    ", attributes: separator))
-            }
+            prefix.append(interItem) // also serves as the loop-wrap separator
         }
 
         renderedAttributedString = prefix
@@ -133,7 +130,7 @@ final class TickerView: NSView {
         guard let ctx = NSGraphicsContext.current?.cgContext else { return }
         // Background gradient — black with alpha matching proximity * opacity, fading on edges
         let alpha = opacity * proximityFade
-        let bgAlpha = 0.6 * alpha
+        let bgAlpha = 0.22 * proximityFade
         ctx.setFillColor(NSColor.black.withAlphaComponent(bgAlpha).cgColor)
         ctx.fill(bounds)
 
