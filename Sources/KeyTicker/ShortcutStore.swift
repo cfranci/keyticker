@@ -48,6 +48,11 @@ final class ShortcutStore {
         return globalShortcuts
     }
 
+    /// Just the app-specific shortcuts (no globals).
+    func appSpecificShortcuts(for bundleID: String) -> [Shortcut] {
+        sets[bundleID]?.shortcuts ?? []
+    }
+
     func appName(for bundleID: String) -> String? {
         sets[bundleID]?.appName
     }

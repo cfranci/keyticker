@@ -8,10 +8,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var store: ShortcutStore!
     private var prefs: Preferences!
     private var shortcutsWindow: NSWindow?
+    private var colorsWindow: NSWindow?
+
+    /// Globals the user has indicated they already know — auto-marked as learned on first launch.
+    /// Anyone else cloning the repo can edit this list (or just check/uncheck via Manage Shortcuts).
+    private let knownGlobalsToSeed: [String] = [
+        "⌘ W|Close window",
+        "⌘ Q|Quit app",
+        "⌘ Tab|Switch between apps",
+        "⌘ Space|Spotlight search"
+        // ⌘ C / V / X / R / S / A are app-level, not in the global JSON — they're already in app-specific sets
+        // and get filtered out per-app when the user marks them learned there. Add per-app seeds later if needed.
+    ]
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         prefs = Preferences()
         store = ShortcutStore()
+        prefs.seedKnownGlobalsIfNeeded(knownGlobalsToSeed)
         tickerController = TickerWindowController(store: store, prefs: prefs)
         appMonitor = AppMonitor { [weak self] bundleID, name in
             self?.handleAppChange(bundleID: bundleID, name: name)
@@ -29,12 +42,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func handleAppChange(bundleID: String?, name: String) {
         let bid = bundleID ?? "_global"
         if prefs.isAppExcluded(bid) {
-            tickerController.updateShortcuts([], appLabel: name)
+            tickerController.updateShortcuts([], appLabel: name, bundleID: bid)
             return
         }
-        let shortcuts = store.shortcuts(for: bid)
+        // shortcuts(for:) returns app-specific shortcuts followed by globals (or globals only).
+        // Filter learned at the granularity of where the shortcut came from:
+        //   - app-specific ones are filtered against bid's learned set
+        //   - global ones are filtered against "_global" learned set
+        let appSpecific = store.appSpecificShortcuts(for: bid)
             .filter { !prefs.isLearned(bundleID: bid, shortcutID: $0.id) }
-        tickerController.updateShortcuts(shortcuts, appLabel: name)
+        let globals = store.globalShortcuts
+            .filter { !prefs.isLearned(bundleID: "_global", shortcutID: $0.id) }
+        tickerController.updateShortcuts(appSpecific + globals, appLabel: name, bundleID: bid)
     }
 
     private func setupStatusItem() {
@@ -108,6 +127,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             action: #selector(toggleFade), keyEquivalent: "")
         fadeItem.target = self
         menu.addItem(fadeItem)
+
+        let colorsItem = NSMenuItem(title: "Customize Colors…", action: #selector(openColorsWindow), keyEquivalent: "")
+        colorsItem.target = self
+        menu.addItem(colorsItem)
 
         menu.addItem(.separator())
 
@@ -192,6 +215,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         NSApp.activate(ignoringOtherApps: true)
         shortcutsWindow?.makeKeyAndOrderFront(nil)
+    }
+
+    @objc private func openColorsWindow() {
+        if colorsWindow == nil {
+            let view = ColorsView(prefs: prefs) { [weak self] in
+                self?.tickerController.applyAppearance()
+                self?.refreshCurrent()
+            }
+            let host = NSHostingController(rootView: view)
+            let win = NSWindow(contentViewController: host)
+            win.title = "KeyTicker — Colors"
+            win.styleMask = [.titled, .closable]
+            win.isReleasedWhenClosed = false
+            colorsWindow = win
+        }
+        NSApp.activate(ignoringOtherApps: true)
+        colorsWindow?.makeKeyAndOrderFront(nil)
     }
 
     @objc private func openAbout() {

@@ -35,6 +35,9 @@ final class TickerWindowController {
         let view = TickerView(frame: NSRect(origin: .zero, size: frame.size))
         view.opacity = CGFloat(prefs.opacity)
         view.pixelsPerSecond = CGFloat(prefs.speed)
+        view.bgColor = prefs.bgColor
+        view.appLabelColor = prefs.appLabelColor
+        view.shortcutColor = prefs.shortcutColor
         panel.contentView = view
         self.tickerView = view
 
@@ -65,13 +68,17 @@ final class TickerWindowController {
         prefs.tickerVisible = isVisible
     }
 
-    func updateShortcuts(_ shortcuts: [Shortcut], appLabel: String) {
-        tickerView.setShortcuts(shortcuts, appLabel: appLabel)
+    func updateShortcuts(_ shortcuts: [Shortcut], appLabel: String, bundleID: String) {
+        tickerView.setShortcuts(shortcuts, appLabel: appLabel, bundleID: bundleID)
     }
 
     func applyAppearance() {
         tickerView.opacity = CGFloat(prefs.opacity)
         tickerView.pixelsPerSecond = CGFloat(prefs.speed)
+        tickerView.bgColor = prefs.bgColor
+        tickerView.appLabelColor = prefs.appLabelColor
+        tickerView.shortcutColor = prefs.shortcutColor
+        tickerView.rebuildBlocksForAppearance()
         tickerView.needsDisplay = true
     }
 

@@ -1,4 +1,4 @@
-import Foundation
+import AppKit
 
 final class Preferences {
     private let defaults = UserDefaults.standard
@@ -10,6 +10,10 @@ final class Preferences {
         static let speed = "speed"
         static let fade = "fadeOnMouseProximity"
         static let visible = "tickerVisible"
+        static let bgColor = "bgColor"
+        static let appLabelColor = "appLabelColor"
+        static let shortcutColor = "shortcutColor"
+        static let didSeedKnownGlobals = "didSeedKnownGlobals_v1"
     }
 
     var opacity: Double {
@@ -77,5 +81,51 @@ final class Preferences {
         var set = excludedSet
         if excluded { set.insert(bundleID) } else { set.remove(bundleID) }
         excludedSet = set
+    }
+
+    // MARK: - Colors
+
+    var bgColor: NSColor {
+        get { color(forKey: Keys.bgColor) ?? NSColor.black.withAlphaComponent(0.6) }
+        set { setColor(newValue, forKey: Keys.bgColor) }
+    }
+
+    var appLabelColor: NSColor {
+        get { color(forKey: Keys.appLabelColor) ?? .systemTeal }
+        set { setColor(newValue, forKey: Keys.appLabelColor) }
+    }
+
+    var shortcutColor: NSColor {
+        get { color(forKey: Keys.shortcutColor) ?? .white }
+        set { setColor(newValue, forKey: Keys.shortcutColor) }
+    }
+
+    func resetColors() {
+        defaults.removeObject(forKey: Keys.bgColor)
+        defaults.removeObject(forKey: Keys.appLabelColor)
+        defaults.removeObject(forKey: Keys.shortcutColor)
+    }
+
+    private func color(forKey key: String) -> NSColor? {
+        guard let data = defaults.data(forKey: key) else { return nil }
+        return try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSColor.self, from: data)
+    }
+
+    private func setColor(_ color: NSColor, forKey key: String) {
+        if let data = try? NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) {
+            defaults.set(data, forKey: key)
+        }
+    }
+
+    // MARK: - One-shot seeding (mark obvious globals as learned for this user)
+
+    /// Mark a set of well-known global shortcuts as already learned, only on first launch.
+    /// Idempotent — guarded by a versioned defaults flag.
+    func seedKnownGlobalsIfNeeded(_ ids: [String]) {
+        guard !defaults.bool(forKey: Keys.didSeedKnownGlobals) else { return }
+        for id in ids {
+            setLearned(bundleID: "_global", shortcutID: id, learned: true)
+        }
+        defaults.set(true, forKey: Keys.didSeedKnownGlobals)
     }
 }
