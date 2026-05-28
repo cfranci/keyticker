@@ -1,0 +1,266 @@
+[
+  {
+    "bundleID": "_global",
+    "appName": "macOS",
+    "shortcuts": [
+      {"keys": "⌘ Space", "action": "Spotlight search"},
+      {"keys": "⌘ Tab", "action": "Switch between apps"},
+      {"keys": "⌘ ` ", "action": "Cycle windows in current app"},
+      {"keys": "⌘ Q", "action": "Quit app"},
+      {"keys": "⌘ W", "action": "Close window"},
+      {"keys": "⌘ M", "action": "Minimize window"},
+      {"keys": "⌘ H", "action": "Hide current app"},
+      {"keys": "⌘ ⌥ H", "action": "Hide all other apps"},
+      {"keys": "⌘ ⌥ Esc", "action": "Force quit menu"},
+      {"keys": "⌘ Ctrl Q", "action": "Lock screen"},
+      {"keys": "⌘ Ctrl F", "action": "Toggle full screen"},
+      {"keys": "⌘ ⇧ 3", "action": "Screenshot entire screen"},
+      {"keys": "⌘ ⇧ 4", "action": "Screenshot selection"},
+      {"keys": "⌘ ⇧ 5", "action": "Screenshot toolbar"},
+      {"keys": "⌘ ⇧ 4 then Space", "action": "Screenshot a window"},
+      {"keys": "Ctrl ⌘ Space", "action": "Open emoji picker"},
+      {"keys": "F11", "action": "Show desktop"},
+      {"keys": "Ctrl ←/→", "action": "Switch between Spaces"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.finder",
+    "appName": "Finder",
+    "shortcuts": [
+      {"keys": "⌘ N", "action": "New Finder window"},
+      {"keys": "⌘ ⇧ N", "action": "New folder"},
+      {"keys": "⌘ ⌥ N", "action": "New smart folder"},
+      {"keys": "⌘ T", "action": "New tab"},
+      {"keys": "⌘ I", "action": "Get Info"},
+      {"keys": "⌘ ⌃ T", "action": "Add to Sidebar"},
+      {"keys": "⌘ D", "action": "Duplicate"},
+      {"keys": "⌘ L", "action": "Make alias"},
+      {"keys": "⌘ Delete", "action": "Move to Trash"},
+      {"keys": "⌘ ⇧ Delete", "action": "Empty Trash"},
+      {"keys": "⌘ ⌥ V", "action": "Move (cut + paste)"},
+      {"keys": "⌘ ⇧ . ", "action": "Show/hide hidden files"},
+      {"keys": "⌘ ⇧ G", "action": "Go to folder…"},
+      {"keys": "⌘ ⇧ H", "action": "Open Home folder"},
+      {"keys": "⌘ ⇧ D", "action": "Open Desktop"},
+      {"keys": "⌘ ⇧ A", "action": "Open Applications"},
+      {"keys": "⌘ ⌥ L", "action": "Open Downloads"},
+      {"keys": "⌘ 1/2/3/4", "action": "Switch view: icon/list/columns/gallery"},
+      {"keys": "Space", "action": "Quick Look"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.Safari",
+    "appName": "Safari",
+    "shortcuts": [
+      {"keys": "⌘ T", "action": "New tab"},
+      {"keys": "⌘ ⇧ T", "action": "Reopen last closed tab"},
+      {"keys": "⌘ W", "action": "Close tab"},
+      {"keys": "⌘ L", "action": "Focus address bar"},
+      {"keys": "⌘ R", "action": "Reload page"},
+      {"keys": "⌘ ⇧ R", "action": "Reader view"},
+      {"keys": "⌘ F", "action": "Find on page"},
+      {"keys": "⌘ ⌥ I", "action": "Show Web Inspector"},
+      {"keys": "⌘ ⌥ U", "action": "View page source"},
+      {"keys": "⌘ ⇧ N", "action": "New private window"},
+      {"keys": "⌘ Y", "action": "Show history"},
+      {"keys": "⌘ ⌥ B", "action": "Show bookmarks"},
+      {"keys": "⌘ 1–9", "action": "Switch to tab 1–9"},
+      {"keys": "⌘ Ctrl 1", "action": "Show Tab Group sidebar"},
+      {"keys": "⌘ ⇧ ]", "action": "Next tab"},
+      {"keys": "⌘ ⇧ [", "action": "Previous tab"}
+    ]
+  },
+  {
+    "bundleID": "com.google.Chrome",
+    "appName": "Chrome",
+    "shortcuts": [
+      {"keys": "⌘ T", "action": "New tab"},
+      {"keys": "⌘ ⇧ T", "action": "Reopen last closed tab"},
+      {"keys": "⌘ W", "action": "Close tab"},
+      {"keys": "⌘ L", "action": "Focus address bar"},
+      {"keys": "⌘ R", "action": "Reload page"},
+      {"keys": "⌘ ⇧ R", "action": "Hard reload (ignore cache)"},
+      {"keys": "⌘ F", "action": "Find on page"},
+      {"keys": "⌘ ⌥ I", "action": "Open DevTools"},
+      {"keys": "⌘ ⌥ J", "action": "Open DevTools Console"},
+      {"keys": "⌘ ⇧ N", "action": "New Incognito window"},
+      {"keys": "⌘ Y", "action": "Show history"},
+      {"keys": "⌘ ⇧ A", "action": "Search tabs"},
+      {"keys": "⌘ ⇧ J", "action": "Show Downloads"},
+      {"keys": "⌘ ⇧ B", "action": "Toggle bookmarks bar"},
+      {"keys": "⌘ 1–9", "action": "Jump to tab 1–9"},
+      {"keys": "⌘ ⌥ ←/→", "action": "Switch tabs"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.dt.Xcode",
+    "appName": "Xcode",
+    "shortcuts": [
+      {"keys": "⌘ B", "action": "Build"},
+      {"keys": "⌘ R", "action": "Run"},
+      {"keys": "⌘ U", "action": "Test"},
+      {"keys": "⌘ . ", "action": "Stop"},
+      {"keys": "⌘ ⇧ K", "action": "Clean build folder"},
+      {"keys": "⌘ ⇧ O", "action": "Open Quickly"},
+      {"keys": "⌘ ⇧ J", "action": "Reveal in Project Navigator"},
+      {"keys": "⌘ Ctrl ↑", "action": "Switch between .h and .m"},
+      {"keys": "⌘ Ctrl ←/→", "action": "Jump back/forward"},
+      {"keys": "⌘ /", "action": "Toggle comment"},
+      {"keys": "Ctrl I", "action": "Re-indent selection"},
+      {"keys": "⌘ ⌥ /", "action": "Insert documentation comment"},
+      {"keys": "⌘ 0", "action": "Toggle Navigator"},
+      {"keys": "⌘ ⌥ 0", "action": "Toggle Inspector"},
+      {"keys": "⌘ ⇧ Y", "action": "Toggle Debug area"},
+      {"keys": "⌘ '", "action": "Next issue"},
+      {"keys": "⌘ ⇧ \"", "action": "Show file inspector"}
+    ]
+  },
+  {
+    "bundleID": "com.microsoft.VSCode",
+    "appName": "VS Code",
+    "shortcuts": [
+      {"keys": "⌘ P", "action": "Quick open file"},
+      {"keys": "⌘ ⇧ P", "action": "Command palette"},
+      {"keys": "⌘ B", "action": "Toggle sidebar"},
+      {"keys": "⌘ J", "action": "Toggle panel"},
+      {"keys": "⌘ /", "action": "Toggle line comment"},
+      {"keys": "⌘ D", "action": "Add next occurrence to selection"},
+      {"keys": "⌘ ⇧ L", "action": "Select all occurrences"},
+      {"keys": "⌘ ⌥ ↑/↓", "action": "Add cursor above/below"},
+      {"keys": "⌥ ↑/↓", "action": "Move line up/down"},
+      {"keys": "⌥ ⇧ ↑/↓", "action": "Duplicate line"},
+      {"keys": "⌘ ⇧ F", "action": "Search across files"},
+      {"keys": "⌘ T", "action": "Go to symbol in workspace"},
+      {"keys": "Ctrl G", "action": "Go to line"},
+      {"keys": "F12", "action": "Go to definition"},
+      {"keys": "⌥ F12", "action": "Peek definition"},
+      {"keys": "⌘ . ", "action": "Quick fix"},
+      {"keys": "⌘ K then S", "action": "Save without formatting"},
+      {"keys": "⌃ `", "action": "Toggle terminal"}
+    ]
+  },
+  {
+    "bundleID": "com.tinyspeck.slackmacgap",
+    "appName": "Slack",
+    "shortcuts": [
+      {"keys": "⌘ K", "action": "Jump to channel or DM"},
+      {"keys": "⌘ ⇧ K", "action": "Browse direct messages"},
+      {"keys": "⌘ ⇧ A", "action": "Open all unreads"},
+      {"keys": "⌘ ⇧ M", "action": "Open mentions & reactions"},
+      {"keys": "⌘ /", "action": "View keyboard shortcuts"},
+      {"keys": "⌘ ⇧ \\", "action": "Add reaction to last message"},
+      {"keys": "⌥ ↑/↓", "action": "Previous/next channel"},
+      {"keys": "⌥ ⇧ ↑/↓", "action": "Previous/next unread"},
+      {"keys": "⌘ F", "action": "Search in Slack"},
+      {"keys": "⌘ . ", "action": "Hide right sidebar"},
+      {"keys": "⌘ E", "action": "Edit last message"},
+      {"keys": "⌘ U", "action": "Upload a file"},
+      {"keys": "⌘ ⇧ T", "action": "Open Threads"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.mail",
+    "appName": "Mail",
+    "shortcuts": [
+      {"keys": "⌘ N", "action": "New message"},
+      {"keys": "⌘ R", "action": "Reply"},
+      {"keys": "⌘ ⇧ R", "action": "Reply All"},
+      {"keys": "⌘ ⇧ F", "action": "Forward"},
+      {"keys": "⌘ ⇧ U", "action": "Get new mail"},
+      {"keys": "⌘ ⇧ D", "action": "Send message"},
+      {"keys": "⌘ ⌥ F", "action": "Search Mail"},
+      {"keys": "⌘ ⇧ J", "action": "Mark as junk"},
+      {"keys": "⌘ ⇧ L", "action": "Flag message"},
+      {"keys": "⌘ Delete", "action": "Delete message"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.Terminal",
+    "appName": "Terminal",
+    "shortcuts": [
+      {"keys": "⌘ T", "action": "New tab"},
+      {"keys": "⌘ N", "action": "New window"},
+      {"keys": "⌘ K", "action": "Clear screen"},
+      {"keys": "⌘ D", "action": "Split window"},
+      {"keys": "⌘ ⌥ ←/→", "action": "Switch tabs"},
+      {"keys": "Ctrl A", "action": "Move cursor to start of line"},
+      {"keys": "Ctrl E", "action": "Move cursor to end of line"},
+      {"keys": "Ctrl U", "action": "Delete from cursor to start"},
+      {"keys": "Ctrl K", "action": "Delete from cursor to end"},
+      {"keys": "Ctrl W", "action": "Delete previous word"},
+      {"keys": "Ctrl R", "action": "Search command history"},
+      {"keys": "Ctrl L", "action": "Clear screen (shell)"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.Notes",
+    "appName": "Notes",
+    "shortcuts": [
+      {"keys": "⌘ N", "action": "New note"},
+      {"keys": "⌘ ⇧ N", "action": "New folder"},
+      {"keys": "⌘ ⇧ T", "action": "Title style"},
+      {"keys": "⌘ ⇧ H", "action": "Heading style"},
+      {"keys": "⌘ ⇧ B", "action": "Body style"},
+      {"keys": "⌘ ⇧ L", "action": "Checklist"},
+      {"keys": "⌘ ⇧ 7", "action": "Bulleted list"},
+      {"keys": "⌘ ⇧ U", "action": "Mark checklist done"},
+      {"keys": "⌘ K", "action": "Add link"},
+      {"keys": "⌘ ⌥ T", "action": "Add table"},
+      {"keys": "⌘ ⇧ P", "action": "Pin note"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.iChat",
+    "appName": "Messages",
+    "shortcuts": [
+      {"keys": "⌘ N", "action": "New message"},
+      {"keys": "⌘ F", "action": "Find"},
+      {"keys": "⌘ ⌥ ↑/↓", "action": "Previous/next conversation"},
+      {"keys": "⌘ R", "action": "Reply in thread"},
+      {"keys": "⌘ Delete", "action": "Delete conversation"}
+    ]
+  },
+  {
+    "bundleID": "com.apple.MobileSMS",
+    "appName": "Messages",
+    "shortcuts": [
+      {"keys": "⌘ N", "action": "New message"},
+      {"keys": "⌘ F", "action": "Find"},
+      {"keys": "⌘ ⌥ ↑/↓", "action": "Previous/next conversation"},
+      {"keys": "⌘ Delete", "action": "Delete conversation"}
+    ]
+  },
+  {
+    "bundleID": "com.figma.Desktop",
+    "appName": "Figma",
+    "shortcuts": [
+      {"keys": "V", "action": "Move tool"},
+      {"keys": "F", "action": "Frame tool"},
+      {"keys": "R", "action": "Rectangle"},
+      {"keys": "O", "action": "Ellipse"},
+      {"keys": "T", "action": "Text"},
+      {"keys": "P", "action": "Pen"},
+      {"keys": "⌘ /", "action": "Quick actions"},
+      {"keys": "⌘ ⌥ K", "action": "Create component"},
+      {"keys": "⌘ D", "action": "Duplicate"},
+      {"keys": "⌥ drag", "action": "Duplicate by dragging"},
+      {"keys": "⌘ G", "action": "Group selection"},
+      {"keys": "⌘ ⌥ G", "action": "Frame selection"},
+      {"keys": "⌘ ⇧ H", "action": "Show/hide selection"},
+      {"keys": "⌘ \\", "action": "Show/hide UI"}
+    ]
+  },
+  {
+    "bundleID": "com.figma.figma-mac",
+    "appName": "Figma",
+    "shortcuts": [
+      {"keys": "V", "action": "Move tool"},
+      {"keys": "F", "action": "Frame tool"},
+      {"keys": "R", "action": "Rectangle"},
+      {"keys": "T", "action": "Text"},
+      {"keys": "⌘ /", "action": "Quick actions"},
+      {"keys": "⌘ ⌥ K", "action": "Create component"},
+      {"keys": "⌘ D", "action": "Duplicate"}
+    ]
+  }
+]
