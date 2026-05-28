@@ -38,14 +38,13 @@ final class TickerView: NSView {
 
     func setShortcuts(_ shortcuts: [Shortcut], appLabel: String, bundleID: String) {
         let block = buildBlock(shortcuts: shortcuts, appLabel: appLabel, bundleID: bundleID)
-        if blocks.isEmpty {
+        if let active = blocks.first, active.id == bundleID {
+            // Same app — just refresh (e.g. learned state changed). Keep scroll position.
+            blocks[0] = block
+        } else {
+            // Different app — switch immediately. New content slides in from the right.
             blocks = [block]
             headOffset = bounds.width
-        } else if let last = blocks.last, last.id == bundleID {
-            // Same app — replace the queued entry so any new "learned" state takes effect on the next loop.
-            blocks[blocks.count - 1] = block
-        } else {
-            blocks.append(block)
         }
         needsDisplay = true
     }
